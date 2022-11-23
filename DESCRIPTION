@@ -1,4 +1,4 @@
-Package: sdm
+Package: sdmPB
 Type: Package
 Title: Species Distribution Modelling
 Version: 1.1-8
