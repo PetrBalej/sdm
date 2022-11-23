@@ -600,13 +600,13 @@ setReplaceMethod('.addLog','sdmdata',
     
     if (!.varExist(data.frame(bg),nall)) stop('one or more predictor variables do not exist in the background data!')
     
-    w <- .dataClean(bg)
-    if (any(w[[2]] > 0)) {
-      bg <- w[[1]]
-      ww <- c()
-      if (w[[2]][1] > 0) .addLog(d) <- paste(w[[2]][1],'records with NA from the background data are removed')
-      if (w[[2]][2] > 0) .addLog(d) <- paste(w[[2]][2],'duplicarted records from the background data are removed')
-    }
+    # w <- .dataClean(bg)
+    # if (any(w[[2]] > 0)) {
+    #   bg <- w[[1]]
+    #   ww <- c()
+    #   if (w[[2]][1] > 0) .addLog(d) <- paste(w[[2]][1],'records with NA from the background data are removed')
+    #   if (w[[2]][2] > 0) .addLog(d) <- paste(w[[2]][2],'duplicarted records from the background data are removed')
+    # }
     
     
     for (n in nsp) {

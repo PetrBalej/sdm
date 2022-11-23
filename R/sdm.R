@@ -1242,9 +1242,9 @@ setMethod('sdm', signature(formula='sdmdata',data='.sdmCorSetting',methods='ANY'
     if (!inherits(ev, "try-error")) mo@evaluation[['training']] <- ev
     else mo@errorLog[['evaluation']][['training']] <- ev
     
-    vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 5),silent=TRUE)
-    if (!inherits(vi, "try-error")) mo@varImportance[['training']] <- vi
-    else mo@errorLog[['varImportance']][['training']] <- vi
+    # vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 5),silent=TRUE)
+    # if (!inherits(vi, "try-error")) mo@varImportance[['training']] <- vi
+    # else mo@errorLog[['varImportance']][['training']] <- vi
     
     
     pred.par[[2]] <- dt[w$replicates[[sp]][[rID]][[3]],]
@@ -1252,9 +1252,9 @@ setMethod('sdm', signature(formula='sdmdata',data='.sdmCorSetting',methods='ANY'
     if (!inherits(ev, "try-error")) mo@evaluation[['test.dep']] <- ev
     else mo@errorLog[['evaluation']][['test.dep']] <- ev
     
-    vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 5),silent=TRUE)
-    if (!inherits(vi, "try-error")) mo@varImportance[['test.dep']] <- vi
-    else mo@errorLog[['varImportance']][['test.dep']] <- vi
+    # vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 5),silent=TRUE)
+    # if (!inherits(vi, "try-error")) mo@varImportance[['test.dep']] <- vi
+    # else mo@errorLog[['varImportance']][['test.dep']] <- vi
     
     
     pred.par[[2]] <- w$generateParams(list(dtype),sp,train=FALSE)[[1]]
@@ -1262,9 +1262,9 @@ setMethod('sdm', signature(formula='sdmdata',data='.sdmCorSetting',methods='ANY'
     if (!inherits(ev, "try-error")) mo@evaluation[['test.indep']] <- ev
     else mo@errorLog[['evaluation']][['test.indep']] <- ev
     
-    vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 5),silent=TRUE)
-    if (!inherits(vi, "try-error")) mo@varImportance[['test.indep']] <- vi
-    else mo@errorLog[['varImportance']][['test.indep']] <- vi
+    # vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 5),silent=TRUE)
+    # if (!inherits(vi, "try-error")) mo@varImportance[['test.indep']] <- vi
+    # else mo@errorLog[['varImportance']][['test.indep']] <- vi
   } else mo@errorLog[['fit']] <- mo@object
   options(warn=0)
   mo
@@ -1288,9 +1288,9 @@ setMethod('sdm', signature(formula='sdmdata',data='.sdmCorSetting',methods='ANY'
     if (!inherits(ev, "try-error")) mo@evaluation[['training']] <- ev
     else mo@errorLog[['evaluation']][['training']] <- ev
     
-    vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 10),silent=TRUE)
-    if (!inherits(vi, "try-error")) mo@varImportance[['training']] <- vi
-    else mo@errorLog[['varImportance']][['training']] <- vi
+    # vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 10),silent=TRUE)
+    # if (!inherits(vi, "try-error")) mo@varImportance[['training']] <- vi
+    # else mo@errorLog[['varImportance']][['training']] <- vi
     
     
     pred.par[[2]] <- w$generateParams(list(dtype),sp,train=FALSE)[[1]]
@@ -1298,9 +1298,9 @@ setMethod('sdm', signature(formula='sdmdata',data='.sdmCorSetting',methods='ANY'
     if (!inherits(ev, "try-error")) mo@evaluation[['test.indep']] <- ev
     else mo@errorLog[['evaluation']][['test.indep']] <- ev
     
-    vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 10),silent=TRUE)
-    if (!inherits(vi, "try-error")) mo@varImportance[['test.indep']] <- vi
-    else mo@errorLog[['varImportance']][['test.indep']] <- vi
+    # vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 10),silent=TRUE)
+    # if (!inherits(vi, "try-error")) mo@varImportance[['test.indep']] <- vi
+    # else mo@errorLog[['varImportance']][['test.indep']] <- vi
     
   } else mo@errorLog[['fit']] <- mo@object
   options(warn=0)
@@ -1323,9 +1323,9 @@ setMethod('sdm', signature(formula='sdmdata',data='.sdmCorSetting',methods='ANY'
     if (!inherits(ev, "try-error")) mo@evaluation[['training']] <- ev
     else mo@errorLog[['evaluation']][['training']] <- ev
     
-    vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 10),silent=TRUE)
-    if (!inherits(vi, "try-error")) mo@varImportance[['training']] <- vi
-    else mo@errorLog[['varImportance']][['training']] <- vi
+    # vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 10),silent=TRUE)
+    # if (!inherits(vi, "try-error")) mo@varImportance[['training']] <- vi
+    # else mo@errorLog[['varImportance']][['training']] <- vi
     
     
     pred.par[[2]] <- dt[w$replicates[[sp]][[rID]][[3]],]
@@ -1333,9 +1333,9 @@ setMethod('sdm', signature(formula='sdmdata',data='.sdmCorSetting',methods='ANY'
     if (!inherits(ev, "try-error")) mo@evaluation[['test.dep']] <- ev
     else mo@errorLog[['evaluation']][['test.dep']] <- ev
     
-    vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 10),silent=TRUE)
-    if (!inherits(vi, "try-error")) mo@varImportance[['test.dep']] <- vi
-    else mo@errorLog[['varImportance']][['test.dep']] <- vi
+    # vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 10),silent=TRUE)
+    # if (!inherits(vi, "try-error")) mo@varImportance[['test.dep']] <- vi
+    # else mo@errorLog[['varImportance']][['test.dep']] <- vi
     
   } else mo@errorLog[['fit']] <- mo@object
   options(warn=0)
@@ -1357,9 +1357,9 @@ setMethod('sdm', signature(formula='sdmdata',data='.sdmCorSetting',methods='ANY'
     if (!inherits(ev, "try-error")) mo@evaluation[['training']] <- ev
     else mo@errorLog[['evaluation']][['training']] <- ev
     
-    vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 10),silent=TRUE)
-    if (!inherits(vi, "try-error")) mo@varImportance[['training']] <- vi
-    else mo@errorLog[['varImportance']][['training']] <- vi
+    # vi <- try(._varImp(pred.par,pred=pred,sp=sp,nsim = 10),silent=TRUE)
+    # if (!inherits(vi, "try-error")) mo@varImportance[['training']] <- vi
+    # else mo@errorLog[['varImportance']][['training']] <- vi
     
   } else mo@errorLog[['fit']] <- mo@object
   options(warn=0)
