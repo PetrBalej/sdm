@@ -41,7 +41,7 @@
 .threshold <- function(o,p,th,stat=0) {
   if (missing(th)) th <- sort(unique(p))
   else th <- sort(unique(th))
-  e <- matrix(nrow=length(th),ncol=16)
+  e <- matrix(nrow=length(th),ncol=21)
   colnames(e) <- c('threshold','sensitivity','specificity','TSS','Kappa','NMI','phi','ppv','npv','ccr',
                    'mcr','or','ommission','commission','prevalence','obsPrevalence',
                    'Jaccard','Sorensen','F_measure','OPR','UPR')
