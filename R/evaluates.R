@@ -263,7 +263,7 @@
   e@statistics[['AUC']] <- .auc(o,p)
   e@statistics[['COR']] <- .cor(o,p)
   e@statistics[['Deviance']] <- .deviance_binomial(o,p)
-  e@threshold_based <- .threshold(o,p,stat=c(1:19)) # return all + 5 new
+  e@threshold_based <- .threshold(o,p,stat=c(1:20)) # return all + 5 new
   e
 }
 #-------
