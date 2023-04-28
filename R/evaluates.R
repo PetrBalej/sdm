@@ -43,14 +43,15 @@
   else th <- sort(unique(th))
   e <- matrix(nrow=length(th),ncol=16)
   colnames(e) <- c('threshold','sensitivity','specificity','TSS','Kappa','NMI','phi','ppv','npv','ccr',
-                   'mcr','or','ommission','commission','prevalence','obsPrevalence')
+                   'mcr','or','ommission','commission','prevalence','obsPrevalence',
+                   'Jaccard','Sorensen','F_measure','OPR','UPR')
   
   e[,1] <- th
   for (i in seq_along(th)) {
     w <- which(p >= th[i])
     pt <- rep(0,length(p))
     pt[w] <- 1
-    e[i,2:16] <- .evaluate.cmx(.cmx(o,pt))
+    e[i,2:21] <- .evaluate.cmx(.cmx(o,pt))
   }
   
   w <- which(is.na(e[,"ppv"]) | is.na(e[,'npv']))
