@@ -11,7 +11,7 @@
     x <- ifelse(x > 15,15,x)
     x <- ifelse(x < 1,1,x)
     x <- unique(x)
-    x <- c('sensitivity','specificity','TSS','Kappa','NMI','phi','ppv','npv','ccr','mcr','or','ommission','commission','predicted.prevalence')[x]
+    x <- c('sensitivity','specificity','TSS','Kappa','NMI','phi','ppv','npv','ccr','mcr','or','ommission','commission','predicted.prevalence','Jaccard','Sorensen','F_measure','OPR','UPR')[x]
   } else {
     x <- tolower(x)
     for (i in seq_along(x)) {
@@ -31,7 +31,7 @@
       else if (any(!is.na(pmatch(c("ph"),x[i])))) x[i] <- 'phi'
     }
     x <- unique(x)
-    w <- which(x %in% c('sensitivity','specificity','TSS','Kappa','NMI','phi','ppv','npv','ccr','mcr','or','ommission','commission','predicted.prevalence'))
+    w <- which(x %in% c('sensitivity','specificity','TSS','Kappa','NMI','phi','ppv','npv','ccr','mcr','or','ommission','commission','predicted.prevalence','Jaccard','Sorensen','F_measure','OPR','UPR'))
     x <- x[w]
   }
   x
@@ -193,8 +193,18 @@
   op <- ifelse(op == 0,0.00001,op)
   NMI <- 1-((-sum(v*log(v)) + sum(pp*log(pp))) / (N*log(N) - sum(op*log(op))))
   TSS <- sens+spec-1
+
+  # https://onlinelibrary-wiley-com.infozdroje.czu.cz/doi/10.1111/jbi.13402
+  # via Lukáš Gábor
+  Jaccard <- TP / (FN + TP + FP)
+  Sorensen <- 2 * TP / (FN + 2 * TP + FP)
+  F_measure <- 2 * Jaccard
+  OPR <- FP / (TP + FP)
+  UPR <- 1 - sens
+
   return(round(c(sensitivity=sens,specificity=spec,TSS=TSS,Kappa=Kappa,NMI=NMI,phi=phi,ppv=ppv,npv=npv,ccr=ccr,
-                 mcr=mcr,or=or,ommission=ommission,commission=commission,predicted.prevalence=pred.prev,prevalence=prev),3))
+                 mcr=mcr,or=or,ommission=ommission,commission=commission,predicted.prevalence=pred.prev,prevalence=prev,
+                 Jaccard=Jaccard,Sorensen=Sorensen,F_measure=F_measure,OPR=OPR,UPR=UPR),3))
 }
 #---- 
 #-----------
@@ -252,7 +262,7 @@
   e@statistics[['AUC']] <- .auc(o,p)
   e@statistics[['COR']] <- .cor(o,p)
   e@statistics[['Deviance']] <- .deviance_binomial(o,p)
-  e@threshold_based <- .threshold(o,p,stat=c(1:9,14))
+  e@threshold_based <- .threshold(o,p,stat=c(1:19)) # return all + 5 new
   e
 }
 #-------
